@@ -18,7 +18,7 @@ from pathlib import Path
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Serve content through ngrok")
     parser.add_argument("-p", "--port", type=int, default=8080, help="Port to use (default: 8080)")
-    parser.add_argument("content", nargs='+', help="Folder path or text content to serve")
+    parser.add_argument("content", nargs='*', help="Folder path or text content to serve (optional)")
     return parser.parse_args()
 
 def setup_content(args):
@@ -29,6 +29,15 @@ def setup_content(args):
     
     # Join all content arguments in case it's text with spaces
     content = " ".join(args.content)
+
+    # no content, open default editor
+    if not content:
+        tmp_file = Path(temp_dir) / "share.txt"
+        # no content, open default editor and use file on save
+        editor = os.environ.get("EDITOR", "vi")
+        subprocess.run([editor, tmp_file.as_posix()])
+        with open(tmp_file) as shared_file:
+            content = shared_file.read()
     
     # Check if it's a folder
     if os.path.isdir(content):

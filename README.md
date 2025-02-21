@@ -12,8 +12,8 @@ usage:
 # sharing text
 python3 main.py "client_id: 123 client_secret: 321"
 
-# sharing longer text
-python3 main.py "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint et sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ips"
+# sharing longer text via default editor in shell
+python3 main.py
 
 # sharing file
 python3 main.py ~/Desktop/your_file.txt
