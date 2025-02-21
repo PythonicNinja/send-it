@@ -44,7 +44,7 @@ Press Ctrl+C to stop the server and exit
 # install
 
 1. install ngrok:
-https://download.ngrok.com/
+https://ngrok.com/docs/getting-started/
 
 2. clone repository:
 ```bash
