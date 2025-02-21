@@ -18,6 +18,7 @@ from pathlib import Path
 def parse_arguments():
     parser = argparse.ArgumentParser(description="Serve content through ngrok")
     parser.add_argument("-p", "--port", type=int, default=8080, help="Port to use (default: 8080)")
+    parser.add_argument("--basic-auth", type=str, help="Basic auth in format 'admin:password'")
     parser.add_argument("content", nargs='*', help="Folder path or text content to serve (optional)")
     return parser.parse_args()
 
@@ -98,16 +99,20 @@ class HttpServer:
             print("HTTP server stopped")
 
 class NgrokTunnel:
-    def __init__(self, port):
+    def __init__(self, port, basic_auth=None):
         self.port = port
         self.process = None
+        self.basic_auth = basic_auth
     
     def start(self):
         """Start ngrok tunnel"""
         try:
+            command = ["ngrok", "http", str(self.port)] 
+            if self.basic_auth:
+                command += ["--basic-auth", self.basic_auth]
             # Start ngrok as a subprocess
             self.process = subprocess.Popen(
-                ["ngrok", "http", str(self.port)],
+                command,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE
             )
@@ -127,6 +132,8 @@ class NgrokTunnel:
                         return False
             except Exception as e:
                 print(f"[error] Failed to get ngrok tunnel info exception: '{e}'")
+                for message in self.process.communicate():
+                    print(f"[error] {message}")
                 return False
                 
         except FileNotFoundError:
@@ -163,7 +170,10 @@ def main():
         return
     
     # Start ngrok
-    ngrok_tunnel = NgrokTunnel(args.port)
+    ngrok_tunnel = NgrokTunnel(
+        port=args.port,
+        basic_auth=args.basic_auth,
+    )
     if not ngrok_tunnel.start():
         print("Failed to start ngrok tunnel")
         http_server.stop()
