@@ -1,6 +1,6 @@
 # send it
 
-Project allows to secretly without any dependencies other than ngrok to tunnel directly text / file / directory on p2p.
+Project allows to secretly without any dependencies other than ngrok to send directly text / file / directory.
 
 Only dependencies are installed on your local:
 1. python3 (no dependencies, only builtins)
@@ -39,3 +39,15 @@ Press Ctrl+C to stop the server and exit
 ```
 
 ![Example Screenshot](https://i.imgur.com/5q7kz5v.png)
+
+
+# install
+
+```
+install ngrok
+
+https://download.ngrok.com/
+
+
+git clone 
+```
