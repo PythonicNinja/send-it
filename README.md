@@ -54,3 +54,9 @@ cd send-it
 
 python3 main.py "client_id: 123 client_secret: 321"
 ```
+
+optional, register alias on bash:
+
+```bash
+function send_it() { python3 ~/PycharmProjects/send-it/main.py $@; }
+```
