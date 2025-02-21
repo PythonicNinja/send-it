@@ -43,10 +43,11 @@ Press Ctrl+C to stop the server and exit
 
 # install
 
-```bash
-install ngrok
+1. install ngrok:
 https://download.ngrok.com/
 
+2. clone repository:
+```bash
 git clone git@github.com:PythonicNinja/send-it.git
 
 cd send-it
