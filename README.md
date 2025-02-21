@@ -3,7 +3,7 @@
 
 Project allows to secretly without any dependencies other than ngrok to send directly text / file / directory.
 
-<video src="send_it.mov" controls width="500px"></video>
+![usage](send_it.gif)
 
 Only dependencies are installed on your local:
 1. python3 (no dependencies, only builtins)
