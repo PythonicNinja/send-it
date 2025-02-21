@@ -10,7 +10,7 @@ usage:
 
 ```bash
 # sharing text
-python3 main.py ala ma kota
+python3 main.py "client_id: 123 client_secret: 321"
 
 # sharing longer text
 python3 main.py "lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim ven in culpa qui officia deserunt mollit anim id est laborum. Excepteur sint et sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ips"
@@ -43,11 +43,13 @@ Press Ctrl+C to stop the server and exit
 
 # install
 
-```
+```bash
 install ngrok
-
 https://download.ngrok.com/
 
+git clone git@github.com:PythonicNinja/send-it.git
 
-git clone 
+cd send-it
+
+python3 main.py "client_id: 123 client_secret: 321"
 ```
