@@ -7,24 +7,30 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sharing secrets via send-it</h1>
+        <h1>Sharing secrets via <a href="https://github.com/PythonicNinja/send-it">send-it</a></h1>
 
         <pre><% message %></pre>
     </div>
+
+    <footer>
+        made with love by <a href="https://github.com/PythonicNinja">PythonicNinja</a>
+    </footer>
 </body>
 <style>
     body {
         font-family: Arial, sans-serif;
         margin-top: 100px;
+        margin: 0;
+        padding: 0;
     }
 
     .container {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 1rem;
     }
 
     pre {
-        max-width: 800px;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid #ccc;
@@ -32,6 +38,26 @@
         border-radius: 5px;
         white-space: pre-wrap;
         word-wrap: break-word;
+    }
+    
+    footer {
+        position: absolute;
+        bottom: 0;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        text-align: center;
+        background-color: #f8f8f8;
+        border-top: 1px solid #ccc;
+        width: 100%;
+    }
+
+    footer a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    footer a:hover {
+        color: #0056b3;
     }
 </style>
 </html>
